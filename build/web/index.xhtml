@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Smartphone Store</title>
+        <style>
+            .input_text[type=text],input[type=password]
+            {
+                width : 80%;
+                padding: 10px 18px;
+                display: inline-block;
+                border: 1px solid #ccc;
+                background-color: white;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .input_text[type=text]:hover,input[type=password]:hover
+            {
+                width : 80%;
+                padding: 10px 18px;
+                display: inline-block;
+                border: 1px solid #ccc;
+                background-color: white;
+            }
+            
+            .button_log
+            {
+                background-color: red;
+                color: white;
+                width: 55%;
+                padding: 14px 20px;
+                margin: 8px 0;
+                cursor: pointer;
+                border: none;
+                border-radius: 20px;
+            }
+            
+            .button_log:hover{
+                background-color: black;
+                transition: 0.5s;
+            }
+            
+            .model-content
+            {
+                background: rgba(0,0,0,0.4);
+                margin: 0% auto 15% auto;
+                border: 1px solid #888;
+                width: 50%;
+                text-align: center;
+                border-radius: 50px;
+            }
+            
+            .body{
+                background-image:url("resources/image/BG10.jpg");
+            }
+            
+            .picture{
+                margin-left: 37%;
+                margin-top: 5%;
+            }
+            
+            h2{
+                color: white;
+            }
+            
+        </style>
+    </h:head>
+    <h:body class="body">
+        <h:graphicImage class="picture" value="resources/image/logo smartphone store1.png" alt="logo" width="350"/>
+        <h:form class="model-content">
+                <h2>Login</h2>
+            <h:inputText a:placeholder="username" class="input_text" value="#{employee.username}"/>
+            <h:inputSecret a:placeholder="password" class="input_text" value="#{employee.password}"/>
+            <h:commandButton value="masuk" class="button_log" action="#{employee.validasiUser()}"/>
+            
+            
+        </h:form>
+    </h:body>
+</html>
+

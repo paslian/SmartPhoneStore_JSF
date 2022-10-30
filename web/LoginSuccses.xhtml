@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Login Succses</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+        <style>
+            .body{
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden; 
+            }
+ 
+            .form
+            {
+                padding-top: 7%;
+            }
+        </style>
+    </h:head>
+    <h:body class="body">
+      <ui:include src="navbar.xhtml"/>
+      <h:form class="form">
+            <div class="col-6">
+                <div class="mb-3">
+                    &nbsp;&nbsp;&nbsp;<label class="form-label">Search</label>
+                <div class="input-group">
+                    &nbsp;&nbsp;&nbsp;<h:inputText id="id" class="form-control" a:placeholder="search" value="#{product.idProduct}"/>&nbsp;
+                    &nbsp;&nbsp;&nbsp;<h:commandButton style=" box-shadow:  0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" class="input-group-text bg-light d-block" value="insert ID" action="#{product.getById()}"/>
+                </div>
+                    <br/>
+                <div class="mb-3">
+                    &nbsp;&nbsp;&nbsp;<h:commandButton style=" box-shadow:  0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="ADD PRODUCT" action="#{navigationController.addpage()}" class="btn btn-sm btn-info"> </h:commandButton>&nbsp; 
+                </div>
+                </div>
+            </div>
+                    <hr/>
+                    <div class="input-group">
+                    &nbsp;&nbsp;&nbsp;<h:commandButton style=" box-shadow:  0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" class="input-group-text bg-light d-block" value="SORT STOCK ASC" action="#{navigationController.sortAsc()}"/>
+                    &nbsp;&nbsp;&nbsp;<h:commandButton style=" box-shadow:  0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" class="input-group-text bg-light d-block" value="SORT STOCK DESC" action="#{navigationController.sortDesc()}"/>
+                    </div>
+            <div class="row pt-5">
+                <div class="col-12">  
+                    
+                    <h1 style="text-align: center; padding-bottom: 3%; font-family: initial; color: darkgoldenrod; ">TABLE PRODUCT</h1>
+
+                    <h:dataTable style=" box-shadow:  0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="#{product.getallrecords()}"  class="table table-striped table-hover" var ="p">
+                        <h:column><f:facet name="header">ID</f:facet>#{p.idProduct}</h:column>&nbsp;
+                        <h:column><f:facet name="header">MERK</f:facet>#{p.merk}</h:column>
+                        <h:column><f:facet name="header">SERIES</f:facet>#{p.series}</h:column>
+                        <h:column><f:facet name="header">PRICE</f:facet>#{p.price}</h:column>
+                        <h:column><f:facet name="header">STOCK</f:facet>#{p.stock}</h:column>
+                    </h:dataTable>    
+                </div>
+            </div>
+        </h:form>
+
+      <ui:include src="footer.xhtml"/>
+    </h:body>
+</html>

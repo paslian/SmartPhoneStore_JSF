@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+          <link href="./css/navbar.css" rel="stylesheet" type="text/css"/>
+          <style>
+        .btn_logout{
+          margin-left: 100%;
+          margin-top: 10px;
+      }
+
+        .slogan{
+          margin-right: 100px;
+          margin-top: 15px;
+          font-family: Lucida Handwriting;
+      }
+          </style>
+    </h:head>
+    <h:body>
+ <nav>
+      <div class="layar-dalam">
+        <div class="logo">
+          <h:graphicImage class="putih" value="resources/image/logo smartphone store1.png" alt="logo" width="350"/>
+
+        </div>
+        <div class="menu">
+            <h1 class="slogan" style="color: white">SMART LIKE US</h1>
+        </div>
+        <div class="btn_logout">
+            <h:form>
+                <h:commandButton style=" box-shadow:  0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"  value="LOGOUT" action="#{employee.logout()}" class="btn btn-sm btn-info"> </h:commandButton>&nbsp; 
+            </h:form>
+        </div>
+      </div>
+    </nav>
+    </h:body>
+</html>
+

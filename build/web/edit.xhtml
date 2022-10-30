@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Edit Product</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+        <style>
+            .body{
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden; 
+            }
+            
+            .form
+            {
+                padding-top: 7%;
+            }
+        </style>
+    </h:head>
+    <h:body class="body">
+      <ui:include src="navbar.xhtml"/>
+      <h:form class="form">
+      </h:form>
+        <main class="flex-shrink-0">
+            <div class="container">
+                <h1 class="mt-5">EDIT PRODUCT</h1>
+                <p class="lead">Please fill in the new product in the column that is already listed</p>
+                <h:form>
+                <div class="mb-3">
+                    <h:commandButton style=" box-shadow:  0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"  value="back" action="#{navigationController.mainpage()}" class="btn btn-sm btn-info"></h:commandButton>
+                 </div>
+                </h:form>
+                <div class="row pt-5">
+                    <div class="col-12">
+                      <h:messages style="color: red"/>
+                        <h:form>
+                                <h:inputHidden id="id" class="form-control" a:placeholder="search" value="#{product.idProduct}"/>&nbsp;
+                            <div class="mb-3">
+                                <label class="form-label">Merk</label>
+                                <h:inputText value="#{product.merk}" class="form-control" a:placeholder="PRESS SHOW DATA BUTTON" validatorMessage="PLEASE INPUT MERK CORRECTLY">
+                                    <f:validateRequired/>
+                                </h:inputText>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Series</label>
+                                <h:inputText value="#{product.series}" class="form-control" a:placeholder="PRESS SHOW DATA BUTTON" validatorMessage="PLEASE INPUT SERIES CORRECTLY">
+                                    <f:validateRequired/>
+                                </h:inputText>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Price</label>
+                                <h:inputText value="#{product.price}" class="form-control"  a:placeholder="PRESS SHOW DATA BUTTON" validatorMessage="PLEASE INPUT PRICE CORRECTLY">
+                                    <f:validateLongRange minimum="0" />
+                                    <f:validateRequired/>
+                                </h:inputText>
+                            <label style="color: red">minimum 0</label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Stock</label>
+                                <h:inputText value="#{product.stock}" class="form-control" a:placeholder="PRESS SHOW DATA BUTTON" validatorMessage="PLEASE INPUT STOCK CORRECTLY">
+                                    <f:validateLongRange minimum="0" />
+                                    <f:validateRequired/>
+                                </h:inputText>
+                            <label style="color: red">minimum 0</label>
+                            </div>
+                            <div class="mb-3">
+                                <h:commandButton style=" box-shadow:  0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" action="#{product.update()}" value="Submit" class="btn btn-primary btn-small btn-rounded"></h:commandButton>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+      <ui:include src="footer.xhtml"/>
+    </h:body>
+</html>
